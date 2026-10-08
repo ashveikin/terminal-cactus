@@ -1,0 +1,36 @@
+# ===== Rust / Cargo build artifacts =====
+# Compiled output, incremental caches, fingerprints, deps — never commit these.
+/target/
+/debug/
+
+# rustfmt backup files
+**/*.rs.bk
+
+# MSVC Windows builds of rustc generate these, which store debugging information
+*.pdb
+
+# ===== Profiling / coverage output =====
+*.profraw
+*.profdata
+/coverage/
+
+# ===== Cargo.lock =====
+# Deliberately NOT ignored: tcac is a binary crate, so the lockfile should be
+# committed for reproducible builds. (Libraries are the ones that ignore it.)
+
+# ===== Environment & secrets =====
+.env
+.env.*
+!.env.example
+
+# ===== Editor / IDE =====
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# ===== OS junk files =====
+.DS_Store
+Thumbs.db
+desktop.ini

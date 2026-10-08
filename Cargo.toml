@@ -1,0 +1,19 @@
+[package]
+name = "tcac"
+version = "0.1.0"
+edition = "2021"
+description = "tcac — a beautifully random cactus generator; dependency-free Rust rewrite of rbonsai"
+license = "MIT"
+
+# Dependency-free, like rbonsai and the ttfx engine: CLI parsing, termios,
+# ioctl, signals and the RNG are all hand-rolled against libc directly.
+
+[[bin]]
+name = "tcac"
+path = "src/main.rs"
+
+[profile.release]
+lto = true
+strip = true
+codegen-units = 1
+panic = "abort"

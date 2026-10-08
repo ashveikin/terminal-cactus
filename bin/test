@@ -1,0 +1,13 @@
+#!/bin/sh
+# Run the full test suite: unit tests, golden snapshot, structural checks,
+# then the interactive pty smoke tests against the release binary.
+set -e
+cd "$(dirname "$0")/.."
+
+echo "== cargo test =="
+cargo test --release
+
+echo "== pty smoke =="
+python3 tools/tests/pty_smoke.py ./target/release/tcac
+
+echo "all green"
